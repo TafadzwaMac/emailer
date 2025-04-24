@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Email Api</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">nodemailer Email</h1>
+        
+        <form autocomplete="off" action="/sendemail" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input class="form-control" type="email" name="to" placeholder="To:" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="subject" placeholder="Subject:" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="body" cols="30" rows="10" required placeholder="Body"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="attachment">Attachment:</label>
+                <input class="form-control" type="file" name="image" id="attachment">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-block btn-danger" type="submit">
+                    Send Message
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
