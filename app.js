@@ -3,10 +3,14 @@ const nodemailer = require('nodemailer');
 const multer = require('multer');
 const path = require('path');
 const cors = require('cors'); // Enable CORS for Postman/testing
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const { Console } = require('console');
+dotenv.config()
+const User =process.env.USER
+const Pass =process.env.PASS
 
 const app = express();
-dotenv.config()
+
 // Middleware
 app.use(cors()); // Allow requests from Postman
 app.use(express.json()); // Parse JSON bodies
@@ -29,14 +33,14 @@ app.post('/send-email', upload.single('attachment'), async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.user, 
-                pass: process.env.pass
+                user: User, 
+                pass:Pass
             }
         });
 
         // Email options
         const mailOptions = {
-            from: 'tafadzwamachingauta245@gmail.com',
+            from: "tafadzwamachingauta245@gmail.com",
             to,
             subject,
             text,
